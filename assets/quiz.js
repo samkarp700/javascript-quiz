@@ -17,8 +17,7 @@
 //5. WHEN the game is over
 //THEN I can save my initials and score (local storage)
 
-document.getElementById("box2").addEventListener("mouseover", changeColor);
+document.getElementById("box2").addEventListener("click", changeColor);
 function changeColor() {
-    document.getElementById("box2").innerHTML = "Answer!";
-    document.getElementById("box2").style.backgroundColor = "green";
+    document.getElementById("box2").style.backgroundColor = "#6AC23E";
 };

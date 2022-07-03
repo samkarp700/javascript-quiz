@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+:root {
+    --primary: #407526;
+    --secondary: #6AC23E;
+    --tertiary: #587549;
+    --white: #ffffff;
+    font-size: 62.5%;
+}
+body {
+    background: var(--white);
+    margin: 0;
+    padding: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:var(--tertiary);
+}
+header{
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--secondary);
+    border-bottom: 5px solid var(--primary);
+    position: relative;
+    position: sticky;
+    top: 0;
+    z-index:1;
+    
+}
+
+.questions{
+    padding: 10px;
+    display:flex;
+    justify-content: left;
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: x-large;
+}
+
+
+
