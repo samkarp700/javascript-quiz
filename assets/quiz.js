@@ -17,7 +17,7 @@
 //5. WHEN the game is over
 //THEN I can save my initials and score (local storage)
 
-document.getElementById("box2").addEventListener("click", changeColor);
-function changeColor() {
-    document.getElementById("box2").style.backgroundColor = "#6AC23E";
-};
+function quizGreet() 
+   
+    
+
