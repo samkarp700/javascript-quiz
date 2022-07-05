@@ -20,15 +20,20 @@
 var beginButton = document.getElementById('begin-btn');
 var nextButton = document.getElementById('next-btn');
 var questionContainerEl = document.getElementById("question-container");
-let randomQuestions, currentQuestionIndex;
+
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById('answer-buttons');
 
+let randomQuestions, currentQuestionIndex;
+
 beginButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++
+    setNextQuestion()
+});
 
 
 function startGame() {
-    console.log("begin");
     beginButton.classList.add("hide");
     randomQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -44,7 +49,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
     questionEl.innerText = question.question;
-    question.answers.forEach(answer => {
+    question.answers.forEach (answer => {
         const button = document.createElement("button");
         button.innerText = answer.text;
         button.classList.add('btn');
@@ -56,55 +61,92 @@ function showQuestion(question) {
     })
 }
 
-
+function resetState() {
+    clearStatusClass(document.body)
+    nextButton.classList.add('hide')
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild(answerButtonsEl.firstChild)
+    }
+}
 
 function selectAnswer(e) {
+    const selectedButton = e.target
+    const correct = selectedButton.dataset.correctset
+    setStatusClass(document.body, correct);
+    Array.from(answerButtonsEl.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if (randomQuestions.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove('hide')
 
+    } else {
+        beginButton.innerText = "Restart"
+        beginButton.classList.remove("hide");
+    }
 
+};
+
+function setStatusClass(element,correct) {
+    clearStatusClass(element)
+    if (correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add("wrong");
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove("correct")
+    element.classList.remove("wrong")
 }
 
 
 
-var questions = [
+const questions = [
     {
-        question: 'What is the coding question?',
-        choice1: 'answer 1', 
-        choice2: 'answer 2',
-        choice3: 'answer 3', 
-        choice4: 'answer 4', 
-        answer: 2,
+        question: 'What is the coding question 1?',
+        answers: [
+        {text: 'answer 1', correct: false}, 
+        {text: 'answer 2', correct: true},
+        {text: 'answer 3', correct: false}, 
+        {text: 'answer 4', correct: false}, 
+        ]
     },
     {
         question: 'What is the coding question 2?',
-        choice1: 'answer 1', 
-        choice2: 'answer 2',
-        choice3: 'answer 3', 
-        choice4: 'answer 4', 
-        answer: 4,
+        answers: [
+        {text: 'answer 1', correct: false}, 
+        {text: 'answer 2', correct: false},
+        {text: 'answer 3', correct: false}, 
+        {text: 'answer 4', correct: true}, 
+        ]
     }, 
     {
-        question: 'What is the coding question 3 ?',
-        choice1: 'answer 1', 
-        choice2: 'answer 2',
-        choice3: 'answer 3', 
-        choice4: 'answer 4', 
-        answer: 3,
+        question: 'What is the coding question 3?',
+        answers: [
+        {text: 'answer 1', correct: true}, 
+        {text: 'answer 2', correct: false},
+        {text: 'answer 3', correct: false}, 
+        {text: 'answer 4', correct: false}, 
+        ]
     }, 
     {
         question: 'What is the coding question 4?',
-        choice1: 'answer 1', 
-        choice2: 'answer 2',
-        choice3: 'answer 3', 
-        choice4: 'answer 4', 
-        answer: 1,
+        answers: [
+        {text: 'answer 1', correct: false}, 
+        {text: 'answer 2', correct: false},
+        {text: 'answer 3', correct: false}, 
+        {text: 'answer 4', correct: true}, 
+        ]
     },
     {
         question: 'What is the coding question 5?',
-        choice1: 'answer 1', 
-        choice2: 'answer 2',
-        choice3: 'answer 3', 
-        choice4: 'answer 4', 
-        answer: 2,
+        answers: [
+        {text: 'answer 1', correct: false}, 
+        {text: 'answer 2', correct: false},
+        {text: 'answer 3', correct: true}, 
+        {text: 'answer 4', correct: false}, 
+        ]
     }
 ]
 
