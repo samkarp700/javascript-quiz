@@ -17,16 +17,53 @@
 //5. WHEN the game is over
 //THEN I can save my initials and score (local storage)
 
-var highScore = document.querySelector("#highscore.btn");
-var questionsEl = document.querySelector("#question");
-var answersEl = document.querySelector("#answers");
-var beginQuiz = document.querySelector("#begin-quiz");
-var counterEl = 60;
+var beginButton = document.getElementById('begin-btn');
+var nextButton = document.getElementById('next-btn');
+var questionContainerEl = document.getElementById("question-container");
+let randomQuestions, currentQuestionIndex;
+var questionEl = document.getElementById("question");
+var answerButtonsEl = document.getElementById('answer-buttons');
 
-var currentQuestion = {};
-var acceptingAnswers = true;
-var score = 0;
-var questionCounter = 0;
+beginButton.addEventListener("click", startGame);
+
+
+function startGame() {
+    console.log("begin");
+    beginButton.classList.add("hide");
+    randomQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    questionContainerEl.classList.remove("hide")
+    setNextQuestion()
+}
+
+function setNextQuestion() {
+    resetState()
+    showQuestion(randomQuestions[currentQuestionIndex])
+
+}
+
+function showQuestion(question) {
+    questionEl.innerText = question.question;
+    question.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerText = answer.text;
+        button.classList.add('btn');
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener("click", selectAnswer)
+        answerButtonsEl.appendChild(button);
+    })
+}
+
+
+
+function selectAnswer(e) {
+
+
+}
+
+
 
 var questions = [
     {
@@ -70,13 +107,6 @@ var questions = [
         answer: 2,
     }
 ]
-// Greeting page - begin button 
-var beginQuiz = function() {
-var buttonEl = document.querySelector("#begin-quiz");
-buttonEl.textContent = "Begin Quiz";
-buttonEl.className = "begin-quiz-btn";
-console.log("you clicked the button");
-};
 
 
 

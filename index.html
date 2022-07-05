@@ -9,14 +9,8 @@
     </head>
    
     <body>
-        <header>
-            <a href="/highscores.html" class="btn" id="highscore.btn"> View High Scores</a>
-            <br>
 
-            
-        </header>
-
-        <div class ="greeting" id ="quiz-greeting"> 
+        <!--<div class ="greeting" id ="quiz-greeting"> 
            <h3>Welcome to the Coding quiz.</h3>
            <p> There will be 5 questions. <br>
             Attempt to answer the questions correctly in the 1 minute alotted. <br>
@@ -26,9 +20,25 @@
             <button class="btn" id="begin-quiz">Begin Quiz</a>
         </div>
 
-       
-        <script src="./assets/quiz.js"></script>
+        <!--quiz container-->
+        <div class="quiz-container">
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="btn-list">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="begin-btn" class="begin-btn btn">Begin Quiz</button>
+                <button id="next-btn" class="next-btn btn hide">Next</button>
+            </div>
+        </div>
         
+        
+        <script src="./assets/quiz.js"></script>
     </body>
 
 
