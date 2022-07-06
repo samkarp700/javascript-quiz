@@ -20,11 +20,18 @@
 var beginButton = document.getElementById('begin-btn');
 var nextButton = document.getElementById('next-btn');
 var questionContainerEl = document.getElementById("question-container");
-
+var greetingEl = document.getElementById("quiz-greeting");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById('answer-buttons');
 
 let randomQuestions, currentQuestionIndex;
+
+
+//this seems to have no effect on anything - goal: show Greeting text in quiz container
+var showGreeting = function(greeting) {
+    greetingEl.innerText = welcome.directions;
+}
+
 
 beginButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -33,7 +40,10 @@ nextButton.addEventListener("click", () => {
 });
 
 
+
+
 function startGame() {
+    //at the start of the game, the greeting should be visible with the begin button
     beginButton.classList.add("hide");
     randomQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
@@ -100,7 +110,14 @@ function clearStatusClass(element) {
     element.classList.remove("wrong")
 }
 
-
+const greeting = [
+        {
+        Welcome: 'Welcome to the Coding quiz. There will be 5 questions.'
+        },
+        { 
+        Directions: 'Attempt to answer the questions correctly in the 1 minute alotted. You will lose time with each incorrect answer.The game will end when either the time runs out or you have answered all questions.'
+        }
+    ]
 
 const questions = [
     {
