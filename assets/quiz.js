@@ -28,7 +28,7 @@ var wrongAnswerEl = document.getElementById('wrong');
 let randomQuestions, currentQuestionIndex;
 
 
-
+//begin button - listen for click, jump to startGame function
 beginButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++
@@ -95,16 +95,15 @@ function selectAnswer(e) {
 function setStatusClass(element,correct) {
     clearStatusClass(element)
     if (correct) {
-
-        element.classList.add('correct');
+        questionContainerEl.appendChild(correctAnswerEl);
     } else {
-        element.classList.add('wrong');
+        questionContainerEl.appendChild(wrongAnswerEl);
     }
 }
 
     function clearStatusClass(element) {
         element.classList.remove("correct");
-        element.classList.remove("correct");
+        element.classList.remove("wrong");
               
        
 }
