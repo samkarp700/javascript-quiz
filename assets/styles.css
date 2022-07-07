@@ -24,6 +24,15 @@ body {
     font-size: xx-large;
 }
 
+.greeting-container{
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
 .quiz-container {
     width: 800px;
     max-width: 80%;
@@ -33,6 +42,8 @@ body {
     box-shadow: 0 0 10px 2px;
    
 }
+
+
 
 .btn-list {
     display:inline-grid;
