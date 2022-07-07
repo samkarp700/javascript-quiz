@@ -23,7 +23,8 @@ var questionContainerEl = document.getElementById("question-container");
 var greetingEl = document.getElementById("quiz-greeting");
 var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById('answer-buttons');
-
+var correctAnswerEl = document.getElementById('correct');
+var wrongAnswerEl = document.getElementById('wrong');
 let randomQuestions, currentQuestionIndex;
 
 
@@ -94,62 +95,66 @@ function selectAnswer(e) {
 function setStatusClass(element,correct) {
     clearStatusClass(element)
     if (correct) {
-        element.classList.add('correct')
+        element.classList.remove("hide");
+        element.classList.add('correct');
     } else {
-        element.classList.add("wrong");
+        element.classList.remove("hide");
+        element.classList.add('wrong');
     }
 }
 
-function clearStatusClass(element) {
-    element.classList.remove("correct")
-    element.classList.remove("wrong")
+    function clearStatusClass(element) {
+        element.classList.remove("correct");
+        element.classList.remove("correct");
+              
+       
 }
 
 
 const questions = [
     {
-        question: 'What is the coding question 1?',
+        question: 'Inside which HTML element do we put JavaScript?',
         answers: [
-        {text: 'answer 1', correct: false}, 
-        {text: 'answer 2', correct: true},
-        {text: 'answer 3', correct: false}, 
-        {text: 'answer 4', correct: false}, 
+        {text: '<javascript>', correct: false}, 
+        {text: '<script>', correct: true},
+        {text: '<scripting>', correct: false}, 
+        {text: '<js>', correct: false}, 
         ]
     },
     {
-        question: 'What is the coding question 2?',
+        question: 'What is the correct HTML for creating a hyperlink?',
         answers: [
-        {text: 'answer 1', correct: false}, 
-        {text: 'answer 2', correct: false},
-        {text: 'answer 3', correct: false}, 
-        {text: 'answer 4', correct: true}, 
+        {text: '<a>http://www.w3schools.com</a>', correct: false}, 
+        {text: '<a name="http://www.w3schools.com">W3Schools.com</a>', correct: false},
+        {text: '<a url="http://www.w3schools.com">w3Schools.com</a>>', correct: false}, 
+        {text: '<a href="http:www.w3schools.com">W3Schools</a>>', correct: true}, 
         ]
     }, 
     {
-        question: 'What is the coding question 3?',
+        question: 'Which of the following property is used to increase or decrease how bold or light a font appears?',
         answers: [
-        {text: 'answer 1', correct: true}, 
-        {text: 'answer 2', correct: false},
-        {text: 'answer 3', correct: false}, 
-        {text: 'answer 4', correct: false}, 
+        {text: 'font-weight', correct: true}, 
+        {text: 'font-style', correct: false},
+        {text: 'font-variant', correct: false}, 
+        {text: 'font-family', correct: false}, 
         ]
     }, 
     {
-        question: 'What is the coding question 4?',
+        question: 'How do you write "Hello World" in an alert box?',
         answers: [
-        {text: 'answer 1', correct: false}, 
-        {text: 'answer 2', correct: false},
-        {text: 'answer 3', correct: false}, 
-        {text: 'answer 4', correct: true}, 
+        {text: 'alertBox("Hello World")', correct: false}, 
+        {text: 'msgBox("Hello World")', correct: false},
+        {text: 'msg("Hello World")', correct: false}, 
+        {text: ' alert("Hello World")', correct: true}, 
         ]
     },
     {
-        question: 'What is the coding question 5?',
+        question: 'How can you add a comment in a JavaScript',
         answers: [
-        {text: 'answer 1', correct: false}, 
-        {text: 'answer 2', correct: false},
-        {text: 'answer 3', correct: true}, 
-        {text: 'answer 4', correct: false}, 
+        {text: '<!--This is a comment--!>', correct: false}, 
+        {text: '"This is a comment"', correct: false},
+        {text: '//This is a comment', correct: true}, 
+        {text: '~This is a comment~', correct: false}, 
         ]
     }
 ]
