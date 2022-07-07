@@ -85,10 +85,18 @@ body {
     display: none;
 }
 
-.correct, .wrong {
+.correct {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--primary);
+    color: green;
+    font-style:italic;
+    border-bottom: solid white;
+}
+
+.wrong {
+    font-size: 3rem;
+    font-weight: bold;
+    color: red;
     font-style:italic;
     border-bottom: solid white;
 }

@@ -77,7 +77,7 @@ function resetState() {
 
 function selectAnswer(e) {
     const selectedButton = e.target
-    const correct = selectedButton.dataset.correctset
+    const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct);
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -95,10 +95,9 @@ function selectAnswer(e) {
 function setStatusClass(element,correct) {
     clearStatusClass(element)
     if (correct) {
-        element.classList.remove("hide");
+
         element.classList.add('correct');
     } else {
-        element.classList.remove("hide");
         element.classList.add('wrong');
     }
 }
