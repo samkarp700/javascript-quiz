@@ -25,12 +25,14 @@ var questionEl = document.getElementById("question");
 var answerButtonsEl = document.getElementById('answer-buttons');
 var correctAnswerEl = document.getElementById('correct');
 var wrongAnswerEl = document.getElementById('wrong');
+var statusCheck = document.getElementById("status-container");
 let randomQuestions, currentQuestionIndex;
 
 
 //begin button - listen for click, jump to startGame function
 beginButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
+   
     currentQuestionIndex++
     setNextQuestion()
 });
@@ -76,21 +78,19 @@ function resetState() {
 }
 
 function selectAnswer(e) {
-    const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
-    setStatusClass(document.body, correct);
-    Array.from(answerButtonsEl.children).forEach(button => {
-        setStatusClass(button, button.dataset.correct)
-    })
+    const selectedButton = e.target;
+    console.log(selectedButton);
+    const correct = selectedButton.dataset.correct;
+    setStatusClass(selectedButton, correct);
     if (randomQuestions.length > currentQuestionIndex + 1) {
-        nextButton.classList.remove('hide')
-
+      nextButton.classList.remove("hide");
+      
     } else {
-        beginButton.innerText = "Restart"
-        beginButton.classList.remove("hide");
+      beginButton.innerText = "Restart";
+      beginButton.classList.remove("hide");
+      
     }
-
-};
+  }
 
 function setStatusClass(element,correct) {
     clearStatusClass(element)
@@ -99,14 +99,13 @@ function setStatusClass(element,correct) {
     } else {
         questionContainerEl.appendChild(wrongAnswerEl);
     }
+    return clearStatusClass;
 }
 
-    function clearStatusClass(element) {
-        element.classList.remove("correct");
-        element.classList.remove("wrong");
-              
-       
+function clearStatusClass () {
+    statusCheck.classList.add("hide");
 }
+
 
 
 const questions = [
