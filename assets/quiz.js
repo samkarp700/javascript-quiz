@@ -26,6 +26,7 @@ var answerButtonsEl = document.getElementById('answer-buttons');
 var correctAnswerEl = document.getElementById('correct');
 var wrongAnswerEl = document.getElementById('wrong');
 var statusCheck = document.getElementById("status-container");
+var responseEl = document.getElementById("response");
 let randomQuestions, currentQuestionIndex;
 
 
@@ -43,7 +44,7 @@ function startGame() {
     beginButton.classList.add("hide");
     greetingEl.classList.add("hide");
     questionContainerEl.classList.remove("hide");
-    randomQuestions = questions.sort(() => Math.random() - .5)
+    randomQuestions = questions.sort(function(){Math.random() - .5})
     currentQuestionIndex = 0
     questionContainerEl.classList.remove("hide")
     setNextQuestion()
@@ -95,15 +96,22 @@ function selectAnswer(e) {
 function setStatusClass(element,correct) {
     clearStatusClass(element)
     if (correct) {
-        questionContainerEl.appendChild(correctAnswerEl);
+        responseEl.innerHTML = "Correct!";
+        responseEl.setAttribute("class", "correct");
+
+        
     } else {
-        questionContainerEl.appendChild(wrongAnswerEl);
+        responseEl.innerHTML = "Wrong!";
+        responseEl.setAttribute("class", "wrong");
     }
     return clearStatusClass;
 }
 
 function clearStatusClass () {
-    statusCheck.classList.add("hide");
+    setTimeout(function() {
+        responseEl.classList.add("hide");  
+    }, 5000);
+    
 }
 
 
