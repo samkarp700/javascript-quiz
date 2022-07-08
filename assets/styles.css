@@ -11,11 +11,21 @@
     --white: #ffffff;
     font-size: 62.5%;
 }
+
+header{
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--white);
+    border: 5px double var(--primary);
+    position: relative;
+    top: 0;
+    z-index:1;
+}
 body {
     background-color: var(--tertiary);
     margin: 0;
     padding: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -24,22 +34,17 @@ body {
     font-size: xx-large;
 }
 
-.greeting-container{
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 2px;
-}
 
 .quiz-container {
-    width: 800px;
+    width: 100%;
     max-width: 80%;
+    margin-top: 100px;
+    margin-left: 200px;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+    text-align: center;
    
 }
 

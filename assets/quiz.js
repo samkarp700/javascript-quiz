@@ -27,18 +27,34 @@ var correctAnswerEl = document.getElementById('correct');
 var wrongAnswerEl = document.getElementById('wrong');
 var statusCheck = document.getElementById("status-container");
 var responseEl = document.getElementById("response");
+feedbackEl = document.getElementById("feedback");
+
 let randomQuestions, currentQuestionIndex;
+
+//timer 
+var timerEl = document.querySelector("#time");
+var time = 60;
+var score = time;
+var remainingTime = "";
 
 
 //begin button - listen for click, jump to startGame function
 beginButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
-   
     currentQuestionIndex++
     setNextQuestion()
 });
 
-
+var startTime = function() {
+    if (time > 0) {
+        time -=1;
+        document.getElementById ("time").innerHTML=time;
+    }
+    else {
+        clearInterval(valid);
+        feedbackEl.textContent = "Time is up!";
+    }
+};
 
 function startGame() {
     beginButton.classList.add("hide");
@@ -47,7 +63,10 @@ function startGame() {
     randomQuestions = questions.sort(function(){Math.random() - .5})
     currentQuestionIndex = 0
     questionContainerEl.classList.remove("hide")
+    remainingTime = time;
+    valid = setInterval(startTime, 1000);
     setNextQuestion()
+   
 }
 
 function setNextQuestion() {
@@ -76,6 +95,7 @@ function resetState() {
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
+
 }
 
 function selectAnswer(e) {
@@ -98,11 +118,14 @@ function setStatusClass(element,correct) {
     if (correct) {
         responseEl.innerHTML = "Correct!";
         responseEl.setAttribute("class", "correct");
+       
 
         
     } else {
         responseEl.innerHTML = "Wrong!";
         responseEl.setAttribute("class", "wrong");
+        time-=5;
+        document.getElementById("time").innerHTML=time;
     }
     return clearStatusClass;
 }
@@ -113,7 +136,6 @@ function clearStatusClass () {
     }, 5000);
     
 }
-
 
 
 const questions = [
