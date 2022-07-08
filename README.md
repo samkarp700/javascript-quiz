@@ -16,5 +16,6 @@ HTMl, CSS, and JavaScript.
 [Test your Knowledge](https://samkarp700.github.io/javascript-quiz/)
 
 # Screenshot of the incomplete quiz site
-![]
+![quizimg](https://user-images.githubusercontent.com/105761973/177904843-193d511c-1ba1-4102-87fe-3c540c82dd1f.jpg)
+
 
