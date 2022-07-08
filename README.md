@@ -1,13 +1,20 @@
-# javascript-quiz
+# Coding Quiz
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+In this application, you will find 5 questions created for beginning coding students. The quiz covers questions pertaining to HTML, CSS, and JavaScript. 
+At this time, when you click "begin," the timer will begin a countdown and questions will appear. 
+Once an answer is selected, the user is notified whether that answer is Correct or Wrong. 
+If the answer is the correct, they can click "next" to move onto the next question. 
+If the answer is wrong, the timer deducts by 5 seconds. 
+If the timer reaches 0, the user is notified that the time is up. 
+While there is a high score page, the page is not fully available for the intake of high scores at this time. 
+Additionally, there are some remaining issues when it comes to completing the quiz that I hope to correct and resubmit at a later date. 
+
+# Built With
+HTMl, CSS, and JavaScript. 
+
+# Link to website
+[Test your Knowledge](https://samkarp700.github.io/javascript-quiz/)
+
+# Screenshot of the incomplete quiz site
+![]
+
